@@ -6,7 +6,9 @@
         <h1>Eminent UI</h1>
         <h2>一个厉害的 UI 框架</h2>
         <p class="actions">
-          <a href="https://github.com">GitHub</a>
+          <a href="https://github.com/miqilin21/eminent-ui" target="_blank"
+            >GitHub</a
+          >
           <router-link to="/doc">开始</router-link>
         </p>
       </div>

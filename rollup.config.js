@@ -11,14 +11,14 @@ export default {
       globals: {
         vue: "Vue",
       },
-      name: "Gulu",
-      file: "dist/lib/gulu.js",
+      name: "Eminent",
+      file: "dist/lib/eminent.js",
       format: "umd",
       plugins: [terser()],
     },
     {
-      name: "Gulu",
-      file: "dist/lib/gulu.esm.js",
+      name: "Eminent",
+      file: "dist/lib/eminent.esm.js",
       format: "es",
       plugins: [terser()],
     },
