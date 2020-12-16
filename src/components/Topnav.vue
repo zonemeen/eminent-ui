@@ -39,6 +39,7 @@ export default {
 
 <style lang="scss" scoped>
 $color: #007974;
+
 .topnav {
   color: $color;
   display: flex;
@@ -50,22 +51,27 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
+
     > svg {
       width: 32px;
       height: 32px;
     }
   }
+
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
+
     > li {
       margin: 0 1em;
     }
   }
+
   > .toggleAside {
     width: 32px;
     height: 32px;
@@ -76,13 +82,16 @@ $color: #007974;
     display: none;
     background: fade-out(black, 0.9);
   }
+
   @media (max-width: 500px) {
     > .menu {
       display: none;
     }
+
     > .logo {
       margin: 0 auto;
     }
+
     > .toggleAside {
       display: inline-block;
     }

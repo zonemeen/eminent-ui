@@ -2,8 +2,8 @@
   <router-view />
 </template>
 
-<script>
-import { provide, ref } from "vue";
+<script lang="ts">
+import { ref, provide } from "vue";
 import { router } from "./router";
 
 export default {

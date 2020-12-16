@@ -36,6 +36,7 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
+
     onMounted(() => {
       watchEffect(() => {
         const { width } = selectedItem.value.getBoundingClientRect();
@@ -46,6 +47,7 @@ export default {
         indicator.value.style.left = left + "px";
       });
     });
+
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       // @ts-ignore
@@ -79,23 +81,28 @@ export default {
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
+
 .gulu-tabs {
   &-nav {
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
     position: relative;
+
     &-item {
       padding: 8px 0;
       margin: 0 16px;
       cursor: pointer;
+
       &:first-child {
         margin-left: 0;
       }
+
       &.selected {
         color: $blue;
       }
     }
+
     &-indicator {
       position: absolute;
       height: 3px;
@@ -106,6 +113,7 @@ $border-color: #d9d9d9;
       transition: all 250ms;
     }
   }
+
   &-content {
     padding: 8px 0;
   }
