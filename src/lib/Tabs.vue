@@ -1,8 +1,8 @@
 <template>
-  <div class="gulu-tabs">
-    <div class="gulu-tabs-nav" ref="container">
+  <div class="eminent-tabs">
+    <div class="eminent-tabs-nav" ref="container">
       <div
-        class="gulu-tabs-nav-item"
+        class="eminent-tabs-nav-item"
         v-for="(t, index) in titles"
         :ref="
           (el) => {
@@ -15,9 +15,9 @@
       >
         {{ t }}
       </div>
-      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
+      <div class="eminent-tabs-nav-indicator" ref="indicator"></div>
     </div>
-    <div class="gulu-tabs-content">
+    <div class="eminent-tabs-content">
       <component :is="current" :key="current.props.title" />
     </div>
   </div>
@@ -84,7 +84,7 @@ export default {
 $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
-.gulu-tabs {
+.eminent-tabs {
   &-nav {
     display: flex;
     color: $color;

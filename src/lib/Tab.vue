@@ -6,6 +6,6 @@
 
 <script lang="ts">
 export default {
-  name: "GuluTab",
+  name: "EminentTab",
 };
 </script>
