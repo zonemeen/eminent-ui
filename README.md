@@ -1,19 +1,44 @@
-# Eminent UI for Vue 3
+<p align="center">
+  <a href="/">
+    <img width="400" src="./logo.png">
+  </a>
+</p>
 
-## 运行步骤
+<h1 align="center">Eminent UI</h1>
 
-1. 运行 yarn
-2. 运行 yarn dev
-3. 打开 http://127.0.0.1:3000
+<div align="center">
 
-## 官网打包步骤
+An eminent UI components based on Vue3.
 
-1. 运行 yarn
-2. 运行 yarn build
-3. 得到的 dist 目录就是官网源代码
-4. 编辑并运行 sh deploy.sh 就可以上传到 Github 或码云等支持 Pages 功能的平台
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/miqilin21/eminent-ui/blob/main/LICENSE)
 
-## 库文件打包步骤
+</div>
 
-1. 运行 rollup -c
-2. 得到的 dist/lib 目录就是编译后的库文件所在目录
+## 🖥 Environment Support
+
+IE 11/ES6+
+
+## 📦 Install
+
+```
+npm install eminent
+```
+
+或
+
+```
+yarn add eminent
+```
+
+## 🔨 Usage
+
+```
+import { Button } from 'eminent'
+import 'eminent-ui/dist/lib/eminent.css'
+
+export default {
+    components: {
+        Button
+    }
+}
+```
