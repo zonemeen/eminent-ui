@@ -21,19 +21,19 @@ IE 11/ES6+
 ## 📦 Install
 
 ```
-npm install eminent
+npm install eminent-ui
 ```
 
 或
 
 ```
-yarn add eminent
+yarn add eminent-ui
 ```
 
 ## 🔨 Usage
 
 ```
-import { Button } from 'eminent'
+import { Button } from 'eminent-ui'
 import 'eminent-ui/dist/lib/eminent.css'
 
 export default {
