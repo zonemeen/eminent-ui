@@ -1,99 +1,67 @@
 <template>
   <div class="topnav">
-    <router-link to="/" class="logo">
-      <svg class="icon">
-        <use xlink:href="#icon-king"></use>
-      </svg>
+    <router-link class="logo" to="/">
+      <Icon iconLink="logo" className="logoE" />
+      <span class="hide">minent</span>
     </router-link>
-    <ul class="menu">
+    <ul class="menu hide">
       <li>
         <router-link to="/doc">文档</router-link>
       </li>
     </ul>
-    <svg v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleMenu">
-      <use xlink:href="#icon-menu"></use>
-    </svg>
   </div>
 </template>
 
 <script lang="ts">
-import { inject, Ref } from "vue";
+import Icon from "./Icon.vue";
 export default {
-  props: {
-    toggleMenuButtonVisible: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  setup() {
-    const menuVisible = inject<Ref<boolean>>("menuVisible"); // get
-    const toggleMenu = () => {
-      menuVisible.value = !menuVisible.value;
-    };
-    return {
-      toggleMenu,
-    };
-  },
+  name: "Topnav",
+  components: { Icon },
 };
 </script>
 
 <style lang="scss" scoped>
-$color: #007974;
-
+$color: #1296d8;
 .topnav {
-  color: $color;
-  display: flex;
-  padding: 16px;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 20;
+  display: flex;
   justify-content: center;
   align-items: center;
-
+  padding: 16px;
+  z-index: 20;
+  color: $color;
   > .logo {
     max-width: 6em;
     margin-right: auto;
-
-    > svg {
-      width: 32px;
-      height: 32px;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 16px;
+    > .logoE {
+      width: 1.3em;
+      height: 1.3em;
     }
   }
-
   > .menu {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-
     > li {
       margin: 0 1em;
+      &:hover,
+      &:focus {
+        color: darken($color, 10%);
+      }
     }
   }
-
-  > .toggleAside {
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: none;
-    background: fade-out(black, 0.9);
-  }
-
   @media (max-width: 500px) {
-    > .menu {
+    .hide {
       display: none;
     }
-
     > .logo {
       margin: 0 auto;
-    }
-
-    > .toggleAside {
-      display: inline-block;
     }
   }
 }
