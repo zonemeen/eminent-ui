@@ -59,6 +59,7 @@ export default {
     };
     const aside = ref<HTMLDivElement>(null);
     const clickLayout = (e) => {
+      if (width.value >= 500) return;
       if (aside.value?.contains(e.target) || !menuVisible.value) return;
       toggleMenu();
     };
@@ -77,11 +78,11 @@ export default {
   height: 100vh;
   > .toggleMenu {
     display: none;
-    z-index: 2;
+    z-index: 3;
   }
   > .nav {
     flex-shrink: 0;
-    z-index: 1;
+    z-index: 2;
   }
   > .content {
     flex-grow: 1;
