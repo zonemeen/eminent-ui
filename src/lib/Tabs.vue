@@ -1,19 +1,19 @@
 <template>
-  <div class="eminent-tabs">
+  <div class="eminent-tabs" :class="classes">
     <div class="eminent-tabs-nav" ref="container">
       <div
         class="eminent-tabs-nav-item"
-        v-for="(t, index) in titles"
+        v-for="(title, index) in titles"
         :ref="
           (el) => {
-            if (t === selected) selectedItem = el;
+            if (title === selected) selectedItem = el;
           }
         "
-        @click="select(t)"
-        :class="{ selected: t === selected }"
+        @click="select(title)"
+        :class="navItemClasses(title)"
         :key="index"
       >
-        {{ t }}
+        {{ title }}
       </div>
       <div class="eminent-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -31,28 +31,55 @@ export default {
     selected: {
       type: String,
     },
+    direction: {
+      type: String,
+      default: "horizontal",
+    },
   },
   setup(props, context) {
+    const classes = computed(() => ({
+      [`eminent-direction-${props.direction}`]: props.direction,
+    }));
+    const navItemClasses = (title) => ({
+      [`eminent-tabs-nav-item-disabled`]: disabledItem[title],
+      ["selected"]: title === props.selected,
+    });
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
     onMounted(() => {
       watchEffect(
         () => {
-          const { width } = selectedItem.value.getBoundingClientRect();
-          indicator.value.style.width = width + "px";
-          const { left: left1 } = container.value.getBoundingClientRect();
-          const { left: left2 } = selectedItem.value.getBoundingClientRect();
-          const left = left2 - left1;
-          indicator.value.style.left = left + "px";
+          const div = selectedItem.value;
+          const { width, height } = div.getBoundingClientRect();
+          const left = div.offsetLeft;
+          const top = div.offsetTop;
+          if (props.direction === "horizontal") {
+            indicator.value.style.width = width + "px";
+            indicator.value.style.left = left + "px";
+          } else if (props.direction === "vertical") {
+            indicator.value.style.height = height + "px";
+            indicator.value.style.top = top + "px";
+          }
         },
         {
           flush: "post",
         }
       );
     });
+    const disabledItem = context.slots.default().reduce(
+      (obj, tag) =>
+        tag.props["disabled"]
+          ? {
+              ...obj,
+              [tag.props["title"]]: true,
+            }
+          : obj,
+      {}
+    );
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
+      // if (tag.type !== Tab) {
       // @ts-ignore
       if (tag.type.name !== Tab.name) {
         throw new Error("Tabs 子标签必须是 Tab");
@@ -65,6 +92,7 @@ export default {
       return tag.props.title;
     });
     const select = (title: string) => {
+      if (Object.keys(disabledItem).indexOf(title) >= 0) return;
       context.emit("update:selected", title);
     };
     return {
@@ -75,6 +103,9 @@ export default {
       selectedItem,
       indicator,
       container,
+      classes,
+      navItemClasses,
+      disabledItem,
     };
   },
 };
@@ -85,14 +116,13 @@ $blue: #40a9ff;
 $color: #333;
 $border-color: #d9d9d9;
 .eminent-tabs {
+  display: flex;
   &-nav {
     display: flex;
     color: $color;
-    border-bottom: 1px solid $border-color;
     position: relative;
     &-item {
-      padding: 8px 0;
-      margin: 0 16px;
+      padding: 8px 12px;
       cursor: pointer;
       &:first-child {
         margin-left: 0;
@@ -100,12 +130,15 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+      &.eminent-tabs-nav-item-disabled {
+        cursor: not-allowed;
+        color: #dfdfdf;
+      }
     }
     &-indicator {
       position: absolute;
       height: 3px;
       background: $blue;
-      left: 0;
       bottom: -1px;
       width: 100px;
       transition: all 250ms;
@@ -113,6 +146,36 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+  }
+  &.eminent-direction-horizontal {
+    flex-direction: column;
+    & > .eminent-tabs-content {
+      padding: 1em;
+    }
+    & > .eminent-tabs-nav {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      flex-direction: row;
+      > .eminent-tabs-indicator {
+        height: 2px;
+        bottom: -1px;
+        left: 0;
+      }
+    }
+  }
+  &.eminent-direction-vertical {
+    flex-direction: row;
+    & > .eminent-tabs-content {
+      padding: 0.5em 1em;
+    }
+    & > .eminent-tabs-nav {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      flex-direction: column;
+      > .eminent-tabs-nav-indicator {
+        width: 3px;
+        top: 0;
+        right: -1px;
+      }
+    }
   }
 }
 </style>

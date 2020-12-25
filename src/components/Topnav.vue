@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
 $color: #1296d8;
 .topnav {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
