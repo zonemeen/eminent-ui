@@ -2,10 +2,14 @@
 
 请先[安装](#/doc/install)本组件库。
 
-然后在你的代码中写入下面的代码
+然后在你的代码中写入下面的代码：
 
 ```
-import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "eminent-ui"
+// 引入所需组件
+import {Button, Tabs, Tab, Switch, Dialog, openDialog, Tag, Progress} from "eminent-ui"
+
+//引入组件样式
+import 'eminent-ui/dist/lib/eminent.css';
 ```
 
 就可以使用我提供的组件了。
@@ -21,9 +25,11 @@ import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "eminent-ui"
   </div>
 </template>
 <script>
-import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "eminent-ui"
+import { Button } from "eminent-ui";
 export default {
-  components: {Button}
-}
+  components: {
+    Button,
+  },
+};
 </script>
 ```
