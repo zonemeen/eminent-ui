@@ -22,9 +22,9 @@
 </template>
 
 <script lang="ts">
-import { Button, Dialog } from "../lib/index";
+import { Button, Dialog } from "../../lib/index";
 import { ref } from "vue";
-import { openDialog } from "../lib/openDialog";
+import { openDialog } from "../../lib/openDialog";
 export default {
   components: {
     Dialog,
