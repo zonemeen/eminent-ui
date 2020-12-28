@@ -4,6 +4,7 @@
       iconLink="returns"
       :className="IconClassName"
       @click.stop="toggleMenu"
+      class="returns"
     />
     <Topnav class="nav" iconVisible />
     <div class="content">
@@ -86,9 +87,14 @@ export default {
     display: none;
     z-index: 3;
   }
+  > .returns {
+    position: fixed !important;
+  }
   > .nav {
     flex-shrink: 0;
     z-index: 2;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(217, 217, 217);
   }
   > .content {
     flex-grow: 1;
@@ -97,7 +103,7 @@ export default {
     display: flex;
     > aside {
       flex-shrink: 0;
-      background: lightblue;
+      background: #fff;
       width: 150px;
       padding: 16px 0;
       position: fixed;
@@ -105,6 +111,7 @@ export default {
       left: 0;
       padding-top: 70px;
       height: 100%;
+      border-right: 1px solid rgb(217, 217, 217);
       z-index: 1;
       > h2 {
         margin-bottom: 4px;
@@ -118,7 +125,7 @@ export default {
             text-decoration: none;
           }
           .router-link-active {
-            background: white;
+            color: #409eff;
           }
         }
       }
