@@ -21,7 +21,7 @@ import {
   Component,
 } from "vue";
 export default {
-  name: "Tag",
+  name: "EminentTag",
   props: {
     size: {
       type: String,

@@ -13,6 +13,7 @@
 
 <script lang="ts">
 import { computed, nextTick, reactive, ref, watch, watchEffect } from "vue";
+declare const props: { percentage: Number };
 export default {
   props: {
     percentage: {
@@ -74,7 +75,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .eminent-progress {
   position: relative;
   width: 100%;

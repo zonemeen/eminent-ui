@@ -1,7 +1,7 @@
 <template>
   <div class="layout" @click="clickLayout">
     <Icon
-      iconLink="returns"
+      iconLink="menu"
       :className="IconClassName"
       @click.stop="toggleMenu"
       class="returns"
@@ -36,6 +36,9 @@
             <router-link to="/doc/tabs">Tabs 组件</router-link>
           </li>
           <li>
+            <router-link to="/doc/checkbox">CheckBox 组件</router-link>
+          </li>
+          <li>
             <router-link to="/doc/tag">Tag 组件</router-link>
           </li>
           <li>
@@ -49,7 +52,7 @@
 </template>
 
 <script lang="ts">
-import Icon from "../components/Icon.vue";
+import Icon from "../lib/Icon.vue";
 import Topnav from "../components/Topnav.vue";
 import { computed, ref } from "vue";
 export default {

@@ -23,6 +23,12 @@
 
 <script lang="ts">
 import Button from "./Button.vue";
+declare const props: {
+  visible: boolean;
+  closeOnClickOverlay: boolean;
+  ok: () => boolean;
+  cancel: () => void;
+};
 export default {
   props: {
     visible: {

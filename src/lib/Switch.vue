@@ -6,6 +6,11 @@
 
 <script lang="ts">
 import { computed, ref } from "vue";
+declare const props: {
+  value: Boolean;
+  size?: "normal" | "big" | "small";
+  disabled: boolean;
+};
 export default {
   props: {
     value: Boolean,

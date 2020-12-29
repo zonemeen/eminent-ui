@@ -23,7 +23,7 @@
         <p>源代码采用 TypeScript 书写</p>
       </li>
       <li>
-        <Icon iconLink="easy" className="features-icon" />
+        <Icon iconLink="light" className="features-icon" />
         <h3>优雅简洁</h3>
         <p>每个组件的源代码都简洁易读</p>
       </li>
@@ -33,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import Icon from "../components/Icon.vue";
+import Icon from "../lib/Icon.vue";
 import Topnav from "../components/Topnav.vue";
 export default {
   components: { Topnav, Icon },

@@ -7,6 +7,7 @@ import DialogDemo from "./components/DialogDemo.vue";
 import TabsDemo from "./components/TabsDemo.vue";
 import TagDemo from "./components/TagDemo.vue";
 import ProgressDemo from "./components/ProgressDemo.vue";
+import CheckBoxDemo from "./components/CheckBoxDemo.vue";
 
 import { h } from "vue";
 import Markdown from "./components/Markdown.vue";
@@ -33,6 +34,7 @@ export const router = createRouter({
         { path: "tabs", component: TabsDemo },
         { path: "tag", component: TagDemo },
         { path: "progress", component: ProgressDemo },
+        { path: "checkbox", component: CheckBoxDemo },
       ],
     },
   ],
