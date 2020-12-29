@@ -42,7 +42,7 @@ yarn add eminent-ui
 
 ```
 import 'eminent-ui/dist/lib/eminent.css';
-import {Button, Tabs, Tab, Switch, Dialog, openDialog} from "eminent-ui"
+import {Button, Tabs, Tab, Switch, Dialog, openDialog, Tag, Progress, CheckBox} from "eminent-ui"
 ```
 
 就可以使用我提供的组件了。

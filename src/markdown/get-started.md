@@ -6,7 +6,7 @@
 
 ```
 // 引入所需组件
-import {Button, Tabs, Tab, Switch, Dialog, openDialog, Tag, Progress} from "eminent-ui"
+import {Button, Tabs, Tab, Switch, Dialog, openDialog, Tag, Progress, CheckBox} from "eminent-ui"
 
 //引入组件样式
 import 'eminent-ui/dist/lib/eminent.css';
